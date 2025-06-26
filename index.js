@@ -19,7 +19,7 @@ export default async ({ req, res, log, error }) => {
 
   const deleteDocs = async (db, col) => {
     const docs = await databases.listDocuments(db, col, [
-      Query.equal("userID", userId)
+      Query.equal("userIdentification", userId)
     ]);
     for (const doc of docs.documents) {
       await databases.deleteDocument(db, col, doc.$id);
@@ -28,7 +28,7 @@ export default async ({ req, res, log, error }) => {
 
   const deleteDocs2 = async (db, col) => {
     const docs = await databases.listDocuments(db, col, [
-      Query.equal("userIdentification", userId)
+      Query.equal("userID", userId)
     ]);
     for (const doc of docs.documents) {
       await databases.deleteDocument(db, col, doc.$id);
