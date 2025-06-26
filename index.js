@@ -10,10 +10,11 @@ export default async ({ req, res, log, error }) => {
   const users = new Users(client);
 
   const db = process.env.APPWRITE_DB;
-  const col1 = process.env.APPWRITE.ADDRESS;
+  const col1 = process.env.APPWRITE_ADDRESS;
   const col2 = process.env.APPWRITE_BOOKING;
 
   const { userId } = JSON.parse(req.payload ?? '{}');
+    log(`Received delete request for userId: ${userId}`);
 
   const deleteDocs = async (db, col) => {
     const docs = await databases.listDocuments(db, col, [
