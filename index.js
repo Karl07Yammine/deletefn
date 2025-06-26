@@ -13,7 +13,7 @@ export default async ({ req, res, log, error }) => {
   const col1 = process.env.APPWRITE_ADDRESS;
   const col2 = process.env.APPWRITE_BOOKING;
 
-  const { userId } = JSON.parse(req.payload ?? '{}');
+  const { userId } = JSON.parse(req.body ?? '{}');
     log(`Received delete request for userId: ${userId}`);
     console.log(userId)
 
