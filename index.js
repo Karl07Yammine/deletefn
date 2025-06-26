@@ -15,6 +15,7 @@ export default async ({ req, res, log, error }) => {
 
   const { userId } = JSON.parse(req.payload ?? '{}');
     log(`Received delete request for userId: ${userId}`);
+    console.log(userId)
 
   const deleteDocs = async (db, col) => {
     const docs = await databases.listDocuments(db, col, [
